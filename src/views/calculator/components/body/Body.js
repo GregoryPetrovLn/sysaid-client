@@ -13,7 +13,7 @@ const Body = () => {
             {buttons.map((row, idx) => (
                 <div className={'row'} key={`row-${idx}`}>
                     {row.map((button, idx) => (
-                        <div className={'item'}>{button != null && <span>{button}</span>}</div>
+                        <div key={`item-${idx}`} className={'item'}>{button != null && <span>{button}</span>}</div>
                     ))}
                 </div>
             ))}
