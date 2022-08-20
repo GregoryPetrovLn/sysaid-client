@@ -5,6 +5,7 @@ import History from "../views/history/History";
 import Header from "./header/Header";
 
 const Layout = () => {
+
     return (
         <div>
             <Header/>
