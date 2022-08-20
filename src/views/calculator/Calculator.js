@@ -12,7 +12,7 @@ const Calculator = () => {
             setResult((prev) => `${prev}${btn}`)
         }
         if (btn === '=') {
-            setResult(eval(result.replace(/[^-()\d/*+.]/g, '')).toString())
+            setResult(eval(result.replace(/[^-\d/*+.]/g, '')).toString())
         }
         if (btn === 'reset') {
             setResult('')

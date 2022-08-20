@@ -1,0 +1,1 @@
+export const SET_CALC_HISTORY = 'SET_CALC_HISTORY'
