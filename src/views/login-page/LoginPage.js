@@ -16,7 +16,7 @@ const LoginPage = () => {
     }
 
     useEffect(() => {
-        checkLoginStatus(navigate)
+        //checkLoginStatus(navigate)
     }, [])
     return (
         <div className={'login-page'}>
