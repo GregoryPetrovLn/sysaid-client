@@ -2,24 +2,31 @@ import React, {useState} from 'react';
 import './Calculator.scss'
 import ResultDisplay from "./components/header/ResultDisplay";
 import Body from "./components/body/Body";
+import {useDispatch, useSelector} from "react-redux";
+import {setCalcHistory, setCalcResult} from "./redux/actions";
 
 const Calculator = () => {
-    const [result, setResult] = useState('')
+    const dispatch = useDispatch()
+    const {result} = useSelector(state => state.calculator)
 
     const actionInputController = (btn) => {
         const lastChar = result[result.length - 1]
         if (result.length !== 0 && !!Number(lastChar)) {
-            setResult((prev) => `${prev}${btn}`)
+            dispatch(setCalcResult(`${result}${btn}`))
+            dispatch(setCalcHistory(btn))
         }
         if (btn === '=') {
-            setResult(eval(result.replace(/[^-\d/*+.]/g, '')).toString())
+            dispatch(setCalcResult(eval(result.replace(/[^-\d/*+.]/g, '')).toString()))
         }
         if (btn === 'reset') {
-            setResult('')
+            dispatch(setCalcResult(''))
         }
     }
 
-    const numberInputController = (btn) => setResult((prev) => `${prev}${btn}`)
+    const numberInputController = (btn) => {
+        dispatch(setCalcResult(`${result}${btn}`))
+        dispatch(setCalcHistory(btn))
+    }
 
 
     const buttonHandler = (btn) => {

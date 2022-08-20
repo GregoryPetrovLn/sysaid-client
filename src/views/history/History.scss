@@ -1,0 +1,12 @@
+@import "src/styles/styles";
+.calc-history {
+  margin: 50px;
+  .clear-btn{
+    background-color: $red;
+    margin-bottom: 20px;
+  }
+
+  .item {
+    margin-bottom: 10px;
+  }
+}
