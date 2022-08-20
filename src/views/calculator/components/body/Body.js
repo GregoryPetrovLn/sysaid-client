@@ -1,14 +1,22 @@
 import React from 'react';
 import './Body.scss'
+
+const buttons = [
+    [7, 8, 9, '*'],
+    [4, 5, 6, '/'],
+    [1, 2, 3, '+'],
+    [0, null, '=', '-']
+]
 const Body = () => {
     return (
         <div className={'calc-body'}>
-            <div className={'row'}>
-                <div className={'item'}><span>7</span></div>
-                <div className={'item'}><span>8</span></div>
-                <div className={'item'}><span>9</span></div>
-                <div className={'item'}><span>*</span></div>
-            </div>
+            {buttons.map((row, idx) => (
+                <div className={'row'} key={`row-${idx}`}>
+                    {row.map((button, idx) => (
+                        <div className={'item'}>{button != null && <span>{button}</span>}</div>
+                    ))}
+                </div>
+            ))}
         </div>
     );
 };
