@@ -4,7 +4,9 @@ import './Calculator.scss'
 const Calculator = () => {
     return (
         <div className={'calculator'}>
-            calc
+            <div className={'calculator__wrapper'}>
+
+            </div>
         </div>
     );
 };
