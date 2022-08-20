@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import InputFields from "./components/InputFields";
 import './LoginPage.scss'
 import {checkLoginStatus} from "../../utils/service";
@@ -15,9 +15,6 @@ const LoginPage = () => {
         resetForm()
     }
 
-    useEffect(() => {
-        //checkLoginStatus(navigate)
-    }, [])
     return (
         <div className={'login-page'}>
             <div className={'login-page__wrapper'}>

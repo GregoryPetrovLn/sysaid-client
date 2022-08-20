@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './Calculator.scss'
 import ResultDisplay from "./components/header/ResultDisplay";
 import Body from "./components/body/Body";
