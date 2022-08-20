@@ -6,11 +6,27 @@
   background-color: $deepGray;
 
   .nav-btns {
+    height: 100%;
+
     button {
       margin-top: 10px;
       vertical-align: middle;
       background-color: $gray;
       height: 30px;
     }
+
+    .login-status {
+      height: 100%;
+      float: right;
+      display: table;
+
+      .user-name {
+        display: table-cell;
+        padding: 0 18px;
+        vertical-align: middle;
+      }
+    }
   }
+
+
 }
