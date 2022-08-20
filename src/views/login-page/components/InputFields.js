@@ -14,51 +14,45 @@ const Schema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
 });
 
-const InputFields = () => {
+const InputFields = ({onSubmit}) => (
+    <Formik
+        initialValues={{
+            username: '',
+            email: '',
+        }}
+        validationSchema={Schema}
+        onSubmit={onSubmit}
+    >
+        {({
+              values,
+              handleChange,
+              handleSubmit,
+              errors,
+              touched
+          }) => (
+            <div className={'input-fields'}>
+                <Input title={'Username'}
+                       placeholder={'Enter user name'}
+                       errors={errors}
+                       touched={touched}
+                       id={'username'}
+                       value={values.username}
+                       onChange={handleChange}
+                />
+                <Input title={'Email'}
+                       placeholder={'Enter user email'}
+                       errors={errors}
+                       touched={touched}
+                       id={'email'}
+                       value={values.email}
+                       onChange={handleChange}
+                />
+                <Button variant={'contained'} className={'input-fields__btn-login'}
+                        onClick={handleSubmit}>Login</Button>
+            </div>
+        )}
+    </Formik>
+);
 
-    const onSubmit = (values, {resetForm}) => {
-        console.log(values)
-        resetForm()
-    }
-    return (
-        <Formik
-            initialValues={{
-                username: '',
-                email: '',
-            }}
-            validationSchema={Schema}
-            onSubmit={onSubmit}
-        >
-            {({
-                  values,
-                  handleChange,
-                  handleSubmit,
-                  errors,
-                  touched
-              }) => (
-                <div className={'input-fields'}>
-                    <Input title={'Username'}
-                           placeholder={'Enter user name'}
-                           errors={errors}
-                           touched={touched}
-                           id={'username'}
-                           value={values.username}
-                           onChange={handleChange}
-                    />
-                    <Input title={'Email'}
-                           placeholder={'Enter user email'}
-                           errors={errors}
-                           touched={touched}
-                           id={'email'}
-                           value={values.email}
-                           onChange={handleChange}
-                    />
-                    <Button variant={'contained'} className={'input-fields__btn-login'}
-                            onClick={handleSubmit}>Login</Button>
-                </div>
-            )}
-        </Formik>
-    );
-};
 
 export default InputFields;
