@@ -3,22 +3,28 @@ import TextField from '@mui/material/TextField';
 import './Input.scss'
 import {FormGroup} from '@mui/material';
 
-const Input = ({ label}) => {
+const Input = ({ value, id, placeholder, onChange,errors,touched}) => {
     return (
         <div className={'custom-input'}>
             <FormGroup>
                 <TextField className={'custom-input__input'}
-                           id="outlined-basic"
-                           label={label}
+                           label={placeholder}
+                           id={id}
+                           name={id}
+                           value={value}
+                           onChange={onChange}
                            variant="outlined"/>
 
+                {errors[id] && touched[id] ? (
+                    <span className={'custom-input__error'}>{errors[id]?.toString()}</span>
+                ) : null}
             </FormGroup>
         </div>
     );
 };
 
 Input.defaultProps = {
-    label: 'Label'
+    placeholder: 'Label'
 }
 
 export default Input;
