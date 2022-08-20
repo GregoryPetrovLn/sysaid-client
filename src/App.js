@@ -1,15 +1,14 @@
 import React from 'react';
-import {Routes, Route, Link} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import LoginPage from "./views/login-page/LoginPage";
-import Calculator from "./views/calculator/Calculator";
+import Layout from "./layout/Layout";
 
 const App = () => {
     return (
         <div>
             <Routes>
                 <Route path="/login" element={<LoginPage/>}/>
-                <Route path="/" element={<Calculator/>}/>
-                <Route path="/history" element={null}/>
+                <Route path="*" element={<Layout/>}/>
             </Routes>
         </div>
     );
